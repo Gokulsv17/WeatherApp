@@ -24,7 +24,7 @@ const Weather = () => {
         `${Api.base}weather?q=${city}&units=metric&appid=${Api.key}`
       );
       console.log(response.data);
-      setData(response.data)
+      setData(response.data);
       setName(response.data.name.toUpperCase());
       setTemp(response.data.main.temp + "\xB0C");
       setLat(response.data.coord.lat);
@@ -41,8 +41,11 @@ const Weather = () => {
   const inputHandler = (e) => {
     setCity(e.target.value);
   };
+  const reloadHandler = ()=>{
+    return window.location.reload()
+  }
   return (
-    <div className={classes.search} > 
+    <div className={classes.search}>
       <h3>Weather App</h3>
       <div className={classes.lab}>
         <input
@@ -53,27 +56,34 @@ const Weather = () => {
         />
         <button onClick={fetchData}>submit</button>
       </div>
-      {data &&
-      <div>
-        <h1>{name}</h1>
+      {data && (
+        <div>
+        <div>
+          <h1>{name}</h1>
 
-        <img src={`http://openweathermap.org/img/wn/${img}@2x.png`} />
-        <div className={classes.weather}>
-          <h3>{weather}</h3>
-          <h4>{temp}</h4>
-        </div>
+          <img src={`http://openweathermap.org/img/wn/${img}@2x.png`} />
+          <div className={classes.weather}>
+            <h3>{weather}</h3>
+            <h4>{temp}</h4>
+          </div>
 
-        <div className={classes.weather}>
-          <div>
-            <p>Latitude: {lat}</p>
-            <p>Longitude: {long}</p>
-          </div>
-          <div>
-            <p>Humidity: {humidity}</p>
-            <p>Wind:{wind}</p>
+          <div className={classes.weather}>
+            <div>
+              <p>Latitude: {lat}</p>
+              <p>Longitude: {long}</p>
+            </div>
+            <div>
+              <p>Humidity: {humidity}</p>
+              <p>Wind:{wind}</p>
+            </div>
           </div>
         </div>
-      </div>}
+        <div>
+
+        <button className={classes.reload} onClick={reloadHandler}>X</button>
+        </div>
+        </div>
+      )}
     </div>
   );
 };

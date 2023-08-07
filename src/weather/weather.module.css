@@ -37,3 +37,10 @@ button{
 h3,h4,div{
     flex: 50%;
 }
+.reload{
+    border-radius: 50%;
+    padding:10px 10px;
+    font-weight: bolder;
+    font-size: 18px;
+    margin: 20px 0 0 0;
+}
