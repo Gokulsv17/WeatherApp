@@ -34,7 +34,7 @@ const Weather = () => {
       setWind(response.data.wind.speed + "km/s ");
       setImg(response.data.weather[0].icon);
     } catch (err) {
-      alert("error");
+      alert("Please Enter the city name..");
     }
   };
 
