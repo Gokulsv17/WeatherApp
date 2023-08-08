@@ -9,6 +9,7 @@ body{
 }
 @media screen and (max-width:800px) {
   body {
+    background-image: url("./img/mobile_sky.jpg");
     background-size: cover;
     background-attachment:fixed }
 }
